@@ -1,0 +1,13 @@
+herdr-pane-labels
+Copyright 2026 kiote
+
+mods/pane-labels is a modified copy of the `pane` mod of herdr-app
+(https://github.com/herdrdev/herdr-app, defaults/mods/pane, version 0.1.12),
+licensed under the Apache License, Version 2.0. Its icons (close, split-down,
+split-right, unzoom, zoom) come from the same folder.
+
+Changes: the header shows the value of the terminal label `pane.title`
+(else `dashboard.title`) after the agent's name; asset paths point to
+mods/pane-labels.
+
+This repository is licensed under the Apache License, Version 2.0 (LICENSE).
