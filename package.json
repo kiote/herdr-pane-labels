@@ -1,0 +1,39 @@
+{
+  "name": "herdr-pane-labels",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Herdr pane-label header with an optional Pi integration for agent-maintained task titles",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiote/herdr-pane-labels.git"
+  },
+  "keywords": [
+    "herdr-mod",
+    "pi-package"
+  ],
+  "pi": {
+    "extensions": [
+      "./integrations/pi/index.ts"
+    ]
+  },
+  "scripts": {
+    "test": "node --test integrations/pi/test.mjs"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "typebox": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    },
+    "typebox": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "jiti": "2.7.0",
+    "typebox": "1.3.27"
+  }
+}

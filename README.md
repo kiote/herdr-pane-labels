@@ -59,11 +59,41 @@ hook can name its own pane: `hc label "$HC_TERMINAL_ID" "pane.title=..."`.
 
 The mod also reads `dashboard.title` when `pane.title` is not set.
 
-## What it does not do
+## Optional: automatic titles from Pi
 
-- It does not make titles. Something must set the label.
-- It reads only labels: no network, no programs, no files.
+The header displays labels; it does not invent them. If you use Pi, the
+[optional Pi integration](integrations/pi/README.md) lets each agent maintain
+its own task label automatically during normal work:
+
+```sh
+pi install git:github.com/kiote/herdr-pane-labels
+```
+
+Install and enable the Herdr header first; the Pi package does not change your
+Herdr layout. Use `/reload` once in already-running Pi sessions. Do not also
+load a manual copy of the same extension.
+
+The integration provides a project/session fallback, asks the agent to update
+its title on substantive task changes, and supports manual pins:
+
+- `/pane-title A fixed label` — pin a title.
+- `/pane-title auto` — resume automatic maintenance.
+- `/pane-title off` — freeze updates.
+
+No separate AI request or background transcript scanner is used. If the agent
+does not call its title tool, the previous/fallback label remains. Read the
+[integration guide](integrations/pi/README.md) for requirements, privacy limits,
+tests and uninstall instructions. Other agents can continue setting labels with
+`hc label` directly.
+
+## What the UI mod does not do
+
+- It does not make titles. Something must set the label; Pi automation is optional.
+- The UI mod reads only labels: no network, no programs, no files.
 - It replaces the header only in the layout that points to it.
+
+The optional Pi integration runs `hc` to update its own terminal's labels; it
+does not modify the UI mod or Herdr's managed agent-status integration.
 
 ## License
 
